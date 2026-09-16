@@ -11,6 +11,7 @@ import Page6MemoryGarden from './pages/Page6MemoryGarden';
 import Page7LittleHouse from './pages/Page7LittleHouse';
 import Page8HandwrittenLetter from './pages/Page8HandwrittenLetter';
 import FinalLoveverse from './pages/FinalLoveverse';
+import ThumbprintCertificate from './pages/ThumbprintCertificate';
 import MusicController from './components/MusicController';
 import SceneContainer from './components/SceneContainer';
 
@@ -82,10 +83,16 @@ export default function App() {
           </SceneContainer>
         );
       case 8:
-      default:
         return (
           <SceneContainer key="page9" bgTheme="night">
-            <FinalLoveverse onReplay={replay} />
+            <FinalLoveverse onNext={nextPage} />
+          </SceneContainer>
+        );
+      case 9:
+      default:
+        return (
+          <SceneContainer key="page10" bgTheme="night">
+            <ThumbprintCertificate onReplay={replay} />
           </SceneContainer>
         );
     }

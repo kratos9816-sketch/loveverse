@@ -6,14 +6,14 @@ import ParticleCanvas from '../components/ParticleCanvas';
 import BearCharacter from '../components/BearCharacter';
 import { playSound } from '../utils/audioManager';
 
-export default function FinalLoveverse({ onReplay }) {
+export default function FinalLoveverse({ onNext }) {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
     playSound.sparkle();
-    const t1 = setTimeout(() => setStep(1), 2000);
-    const t2 = setTimeout(() => setStep(2), 4000);
-    const t3 = setTimeout(() => setStep(3), 6000);
+    const t1 = setTimeout(() => setStep(1), 1800);
+    const t2 = setTimeout(() => setStep(2), 3600);
+    const t3 = setTimeout(() => setStep(3), 5400);
     const t4 = setTimeout(() => {
       setStep(4);
       confetti({
@@ -22,7 +22,7 @@ export default function FinalLoveverse({ onReplay }) {
         origin: { y: 0.6 },
         colors: ['#f59e0b', '#fbbf24', '#f472b6', '#ec4899']
       });
-    }, 8000);
+    }, 7200);
 
     return () => {
       clearTimeout(t1);
@@ -111,15 +111,15 @@ export default function FinalLoveverse({ onReplay }) {
           </AnimatePresence>
         </div>
 
-        {/* Replay Button */}
+        {/* Transition to Marriage Certificate Vow */}
         {step >= 4 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="mt-8"
           >
-            <StoryButton onClick={onReplay} variant="gold">
-              🍯 REPLAY OUR LOVEVERSE
+            <StoryButton onClick={onNext} variant="rose">
+              SEAL OUR FINAL VOW 💍 →
             </StoryButton>
           </motion.div>
         )}
